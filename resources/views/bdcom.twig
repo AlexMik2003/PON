@@ -1,0 +1,43 @@
+{% extends "index.twig" %}
+
+{% block page %}
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <b>BDCOM [{{ bdcom.bdcom_id }}]</b>
+                {% if bdcom.status %}
+                <div class="nav epon_menu">
+                    {% for i in 1..8 %}
+                        <a href="{{ path_for("epon",{"id":bdcom.bdcom_id,"epon": i}) }}" class="btn btn-default navbar-btn" role="button"><strong>Interface EPON 0/{{ i }}</strong></a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="panel-body" id="bd_summary">
+                {% if bdcom.status %}
+                    <ul class="list-group">
+                        {% for key,pon in bdcom.pon %}
+                            <li class="list-group-item">
+                                <span class="badge">{{ pon }}</span>
+                                <b>{{ key }}</b>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <table class="table table-bordered epon_summ">
+                        <tr>
+                            <td>Summary:</td>
+                            <td style="text-align: right">{{ bdcom.summary }}</td>
+                        </tr>
+                    </table>
+                {% else %}
+                    <table class="table table-bordered epon_summ">
+                        <tr>
+                            <td class="bg-danger" style="text-align: center">BDCOM-{{ bdcom.bdcom_id }} IS DOWN!!!</td>
+                        </tr>
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

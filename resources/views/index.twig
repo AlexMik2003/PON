@@ -1,0 +1,14 @@
+{% extends "app.twig" %}
+    {% block content %}
+      <div class="container-fluid">
+        {% include "partial/header.twig" %}
+        <div class="row wrapper">
+          <div class="col-md-12">
+            {% include "partial/menu.twig" %}
+            {% block page %}
+            {% endblock %}
+          </div>
+        </div>
+        {% include "partial/footer.twig" %}
+      </div>
+    {% endblock %}

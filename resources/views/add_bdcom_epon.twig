@@ -1,0 +1,30 @@
+{% extends "index.twig" %}
+
+{% block page %}
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <b>BDCOM [{{ bdcom.bdcom_id }}] EPON [{{ bdcom.epon_id }}] [add onu]</b>
+            </div>
+            <div class="panel-body">
+                <form action="" method="post" class="form-horizontal" id="dev_form">
+                    <div class="form-group">
+                        <label for="bdcom_mac" class="col-sm-2 control-label">MAC address: </label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="mac_part_1" name="mac_part_1" value="" data-validate="required" minlength="4" maxlength="4">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="mac_part_2" name="mac_part_2" value="" data-validate="required" minlength="4" maxlength="4">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="mac_part_3" name="mac_part_3" value="" data-validate="required" minlength="4" maxlength="4">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="add_onu"><strong>ADD ONU</strong></button>
+                    {{ csrf.field | raw }}
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,173 @@
+html, body{
+    min-height: 100%;
+    position: relative;
+    background:#f8f8f8;
+}
+
+.container-fluid{
+    background:#f8f8f8;
+}
+
+.header{
+    padding-top: 20px;
+    border-bottom: 1px solid #ccc;
+    background:#f8f8f8;
+    position: absolute;
+    height: 70px;
+    width: 100%;
+    top:0;
+}
+
+#logo{
+    padding-left: 50px;
+    margin-top: 0;
+    font-weight: bold;
+    font-style: italic;
+    color: #1933ec;
+    font-family: "Courier 10 Pitch";
+    text-decoration: underline;
+}
+
+.auth{
+    background:#f8f8f8;
+}
+
+.flash{
+    text-align: center;
+    font-weight: bold;
+    height: 50px;
+}
+
+.msg, .login{
+    background:#f8f8f8;
+    border-bottom: 1px solid #ccc;
+    height: 50px;
+}
+
+.logo{
+    padding-left: 100px;
+}
+
+#logout{
+    color: #1933ec;
+    font-weight: bold;
+}
+
+.notice{
+    padding-right: 100px;
+}
+
+.left{
+    border-right: 1px solid #ccc;
+    width: 350px;
+}
+
+.wrapper{
+    margin-top: 70px;
+    background:#f8f8f8;
+}
+
+.name{
+    float: left;
+    color: #1933ec;
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 5px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+}
+
+#footer {
+    text-align: center;
+    color: #1933ec;
+    padding-top: 20px;
+}
+
+.panel {
+    margin: 10px 10px 10px 10px;
+}
+
+.panel-body{
+    background:#f8f8f8;
+}
+
+.epon_menu{
+    float: right;
+    font-size: 13px;
+    margin-right: 10px;
+    margin-top:-15px;
+}
+
+.epon_summ{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.pon_menu{
+    font-weight: bold;
+    margin-left: 50px;
+
+}
+
+#add,#add:hover{
+    float: right;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.dataTables_length{
+    margin-left: 20px;
+}
+
+.dataTables_filter{
+    margin-right: 20px;
+}
+
+.dataTables_info{
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.dataTables_paginate{
+    margin-right: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+table.dataTable thead th {
+    position: relative;
+    background-image: none !important;
+}
+
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    display: block;
+    font-family: FontAwesome;
+}
+
+table.dataTable thead th.sorting:after {
+    content: "\f0dc";
+    color: #ddd;
+    font-size: 0.8em;
+    padding-top: 0.12em;
+}
+table.dataTable thead th.sorting_asc:after {
+    content: "\f0de";
+}
+table.dataTable thead th.sorting_desc:after {
+    content: "\f0dd";
+}
+
+.highlight { font-weight: bold }
+
+#add_onu{
+    margin-left: 40%;
+}

@@ -1,0 +1,44 @@
+{% extends "app.twig" %}
+
+{% block content %}
+
+<div class="row auth">
+        <div class="col-xs-4 col-xs-offset-4">
+            <h1 class="page-header"></h1>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center"><strong>USER LOGIN</strong></h4>
+                </div>
+                <div class="panel-body">
+                    {% include "partial/flash.twig" %}
+                    <form class="form-horizontal" action="{{ path_for("signin") }}" method="post">
+                        <div class="form-group{{ errors.username ? ' has error' : '' }}">
+                            <label for="username" class="col-md-3 control-label">User Name: </label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="username" name="username" value="" placeholder="Username">
+                                {% if errors.username %}
+                                    <span class="help-block">{{ errors.username | first }}</span>
+                                {%  endif %}
+                            </div>
+                        </div>
+                        <div class="form-group{{ errors.password ? ' has error' : '' }}">
+                            <label for="password" class="col-md-3 control-label">Password: </label>
+                            <div class="col-md-7">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                {% if errors.password %}
+                                    <span class="help-block">{{ errors.password | first }}</span>
+                                {%  endif %}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-5 col-md-10">
+                                <button type="submit" class="btn btn-primary"><strong>Login</strong></button>&emsp;
+                            </div>
+                        </div>
+                        {{ csrf.field | raw }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
