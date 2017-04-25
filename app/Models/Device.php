@@ -46,4 +46,9 @@ class Device extends Model
     {
         return $this->belongsTo(GponSn::class);
     }
+
+    public function gpononu()
+    {
+        return $this->belongsTo(GponOnu::class);
+    }
 }

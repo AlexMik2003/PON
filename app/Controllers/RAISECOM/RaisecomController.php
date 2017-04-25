@@ -4,6 +4,7 @@ namespace App\Controllers\RAISECOM;
 
 use App\Controllers\BaseController;
 use App\Models\Device;
+use App\Models\GponOnu;
 use App\Models\GponSn;
 use \Respect\Validation\Validator as valid;
 use phpseclib\Net\SSH2;
@@ -156,7 +157,10 @@ class RaisecomController extends BaseController
             $id = 2;
         }
 
+        $this->container["db"]->table("gpon_sn")->truncate();
+        $this->container["db"]->table("gpon_onu")->truncate();
         $this->createGponOnu($args["id"],$args["gpon"],$request->getParam("raisecom_sn"),$id);
+
 
         return $responce->withRedirect($this->router->pathFor("raisecom", array("id" => $args["id"])));
 
@@ -173,7 +177,7 @@ class RaisecomController extends BaseController
      *
      * @throws \Exception
      */
-    public function createGponOnu($raisecom,$gpon,$sn,$id)
+    public function createGponOnu($raisecom,$gpon,$rsn,$id)
     {
         $user = $this->auth->user()->login;
         $device = Device::where("id","=",$raisecom)->first();
@@ -195,7 +199,7 @@ class RaisecomController extends BaseController
         echo $ssh->read();
         $ssh->write("interface gpon-olt 1/{$gpon}\n");
         echo $ssh->read();
-        $ssh->write("create gpon-onu sn {$sn} line-profile-id {$id} service-profile-id {$id}\n");
+        $ssh->write("create gpon-onu sn {$rsn} line-profile-id {$id} service-profile-id {$id}\n");
         echo $ssh->read();
         $ssh->write("exit\n");
         echo $ssh->read();
@@ -207,7 +211,33 @@ class RaisecomController extends BaseController
         echo $ssh->read();
         $ssh->write("exit\n");
 
+        $mibs = $this->device_config->getDeviceMibs("raisecom");
+        $gpons = $this->device_config->getPorts($ip,$this->container["community"],$mibs->gpons);
+        $alias = $this->device_config->getGponsAlias($ip,$this->container["community"],$mibs->alias, $gpons);
+        $sn = $this->device_config->getRaisecomSn($ip,$this->container["community"],$mibs->gpon_sn, $gpons);
+        $oper = $this->device_config->getOperStatus($ip,$this->container["community"],$mibs->oper_status, $gpons);
+
+        for($i=0;$i<count($gpons);$i++)
+        {
+            if($sn[$i] == $sn)
+            {
+                GponOnu::create([
+                    "device_id" => $raisecom,
+                    "gpon" => strtoupper($alias[$i]),
+                    "sn" => $sn[$i],
+                    "oper_status" => $oper[$i],
+                ]);
+            }
+            GponSn::create([
+                "device_id" => $raisecom,
+                "gpon" => strtoupper($alias[$i]),
+                "sn" => $sn[$i],
+                "oper_status" => $oper[$i],
+            ]);
+        }
     }
+
+
 
     /**
      * Deleting onu
@@ -224,6 +254,7 @@ class RaisecomController extends BaseController
     {
         $pon = GponSn::where("id","=",$args["onu"])->first();
         $gpon = explode("/",$pon->gpon);
+        $this->container["db"]->table("gpon_sn")->truncate();
         $this->noCreateGponOnu($args['id'],$gpon[1],$gpon[2]);
 
         return $responce->withRedirect($this->router->pathFor("raisecom", array("id" => $args["id"])));
@@ -273,6 +304,22 @@ class RaisecomController extends BaseController
         $ssh->write("exit\n");
         echo $ssh->read();
         $ssh->write("exit\n");
+
+        $mibs = $this->device_config->getDeviceMibs("raisecom");
+        $gpons = $this->device_config->getPorts($ip,$this->container["community"],$mibs->gpons);
+        $alias = $this->device_config->getGponsAlias($ip,$this->container["community"],$mibs->alias, $gpons);
+        $sn = $this->device_config->getRaisecomSn($ip,$this->container["community"],$mibs->gpon_sn, $gpons);
+        $oper = $this->device_config->getOperStatus($ip,$this->container["community"],$mibs->oper_status, $gpons);
+
+        for($i=0;$i<count($gpons);$i++)
+        {
+            GponSn::create([
+                "device_id" => $raisecom,
+                "gpon" => strtoupper($alias[$i]),
+                "sn" => $sn[$i],
+                "oper_status" => $oper[$i],
+            ]);
+        }
 
 
     }

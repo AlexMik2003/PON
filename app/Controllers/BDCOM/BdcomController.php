@@ -162,6 +162,8 @@ class BdcomController extends BaseController
 
         $mac = $request->getParam("mac_part_1").".".$request->getParam("mac_part_2").".".$request->getParam("mac_part_3");
 
+        $this->container["db"]->table("epon_mac")->truncate();
+
         $this->bindEponOnu($args["id"],$args["epon"],$mac);
 
         return $responce->withRedirect($this->router->pathFor("bdcom", array("id" => $args["id"])));
@@ -207,6 +209,28 @@ class BdcomController extends BaseController
         echo $ssh->read();
         $ssh->write("exit\n");
 
+        $mibs = $this->device_config->getDeviceMibs("bdcom");
+        $ports = $this->device_config->getPorts($ip,$this->container["community"],$mibs->ports);
+        $epons = $this->device_config->getEpons($ip,$this->container["community"],$mibs->epon, $ports);
+        $epon_id = [];
+        for($i=8;$i<count($epons);$i++)
+        {
+            $epon_id[] = $epons[$i];
+        }
+        $alias = $this->device_config->getEponsAlias($ip,$this->container["community"],$mibs->alias, $epon_id);
+        $mac = $this->device_config->getBdcomEponMac($ip,$this->container["community"],$mibs->epon_mac, $epon_id);
+        $oper = $this->device_config->getOperStatus($ip,$this->container["community"],$mibs->oper_status, $epon_id);
+
+        for($i=0;$i<count($epon_id);$i++)
+        {
+            EponMac::create([
+                "device_id" => $bdcom,
+                "epon" => $alias[$i],
+                "mac" => $mac[$i],
+                "oper_status" => $oper[$i],
+            ]);
+        }
+
     }
 
     /**
@@ -224,6 +248,7 @@ class BdcomController extends BaseController
     {
         $pon = EponMac::where("id","=",$args["onu"])->first();
         $epon = explode(":",$pon->epon);
+        $this->container["db"]->table("epon_mac")->truncate();
         $this->noBindEponOnu($args['id'],$epon[0],$pon->mac);
 
         return $responce->withRedirect($this->router->pathFor("bdcom", array("id" => $args["id"])));
@@ -268,6 +293,26 @@ class BdcomController extends BaseController
         echo $ssh->read();
         $ssh->write("exit\n");
 
+        $mibs = $this->device_config->getDeviceMibs("bdcom");
+        $ports = $this->device_config->getPorts($ip,$this->container["community"],$mibs->ports);
+        $epons = $this->device_config->getEpons($ip,$this->container["community"],$mibs->epon, $ports);
+        $epon_id = [];
+        for($i=8;$i<count($epons);$i++)
+        {
+            $epon_id[] = $epons[$i];
+        }
+        $alias = $this->device_config->getEponsAlias($ip,$this->container["community"],$mibs->alias, $epon_id);
+        $mac = $this->device_config->getBdcomEponMac($ip,$this->container["community"],$mibs->epon_mac, $epon_id);
+        $oper = $this->device_config->getOperStatus($ip,$this->container["community"],$mibs->oper_status, $epon_id);
 
+        for($i=0;$i<count($epon_id);$i++)
+        {
+            EponMac::create([
+                "device_id" => $bdcom,
+                "epon" => $alias[$i],
+                "mac" => $mac[$i],
+                "oper_status" => $oper[$i],
+            ]);
+        }
     }
 }
