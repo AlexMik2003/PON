@@ -9,9 +9,9 @@ $ssh = new SSH2($ip);
 if (!$ssh->login("kuzmich", 'Fibra.Net')) {
     exit('Login Failed');
 }
-$ssh->write("avm\n");
+$ssh->write("kuzmich\n");
 echo $ssh->read();
-$ssh->write("Z@dnitsa\n");
+$ssh->write("Fibra.Net\n");
 echo $ssh->read();
 $ssh->write("enable\n");
 echo $ssh->read();

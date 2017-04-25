@@ -185,7 +185,7 @@ class RaisecomController extends BaseController
         }
         $ssh->write("{$user}\n");
         echo $ssh->read();
-        $ssh->write("Z@dnitsa\n");
+        $ssh->write("Fibra.Net\n");
         echo $ssh->read();
         $ssh->write("enable\n");
         echo $ssh->read();
@@ -252,7 +252,7 @@ class RaisecomController extends BaseController
         }
         $ssh->write("{$user}\n");
         echo $ssh->read();
-        $ssh->write("Z@dnitsa\n");
+        $ssh->write("Fibra.Net\n");
         echo $ssh->read();
         $ssh->write("enable\n");
         echo $ssh->read();
