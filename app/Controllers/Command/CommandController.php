@@ -29,6 +29,7 @@ class CommandController
         }
 
         $this->device_config = json_decode($configFile);
+
     }
 
     /**
@@ -131,6 +132,30 @@ class CommandController
     }
 
     /**
+     * Get gpons aliases
+     *
+     * @param string $ip - device ip address
+     *
+     * @param string $community - snmp community
+     *
+     * @param string $mib - current mib
+     *
+     * @return array - gpons aliases
+     */
+    public function getGponsAlias($ip, $community, $mib, $gpons)
+    {
+        $alias = [];
+        foreach ($gpons as $value)
+        {
+            $pon = snmp2_walk($ip,$community,$mib.$value);
+            $pon = explode("STRING:",$pon[0]);
+            $pon = str_replace('"', "", $pon[1]);
+            $alias[] = trim($pon);
+        }
+        return $alias;
+    }
+
+    /**
      * Get epons mac addresses
      *
      * @param string $ip - device ip address
@@ -141,7 +166,7 @@ class CommandController
      *
      * @return array - mac addresses
      */
-    public function getBdcoEponMac($ip, $community, $mib, $ports)
+    public function getBdcomEponMac($ip, $community, $mib, $ports)
     {
         $mac = [];
         foreach ($ports as $value)
@@ -156,6 +181,31 @@ class CommandController
     }
 
     /**
+     * Get gpons serial number
+     *
+     * @param string $ip - device ip address
+     *
+     * @param string $community - snmp community
+     *
+     * @param string $mib - current mib
+     *
+     * @return array - serial numbers
+     */
+    public function getRaisecomSn($ip, $community, $mib, $ports)
+    {
+        $sn = [];
+        foreach ($ports as $value)
+        {
+            $pon = snmp2_walk($ip,$community,$mib.$value);
+            $pon = explode(" ",$pon[0]);
+            $pon = str_replace('"', "", $pon[1]);
+            $sn[] = $pon;
+
+        }
+        return $sn;
+    }
+
+    /**
      * Get onu status
      *
      * @param string $ip - device ip address
@@ -166,7 +216,7 @@ class CommandController
      *
      * @return array - onu status
      */
-    public function getBdcoEponOperStatus($ip, $community, $mib, $ports)
+    public function getOperStatus($ip, $community, $mib, $ports)
     {
         $oper = [];
         foreach ($ports as $value)

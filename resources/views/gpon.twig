@@ -1,0 +1,29 @@
+{% extends "index.twig" %}
+
+{% block page %}
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <b>RAISECOM GPON-OLT [1/{{ raisecom.gpon_id }}]</b>
+                <div class="nav epon_menu">
+                        <a href="{{ path_for("gpon.add",{"id":raisecom.raisecom_id, "gpon":raisecom.gpon_id}) }}" class="btn btn-default navbar-btn" role="button" id="add">ADD ONU</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered dataTable display" id="raisecom">
+                    <thead>
+                    <tr class="info">
+                        <th id="gpon">GPON</th>
+                        <th id="sn">SN</th>
+                        <th id="status">STATUS</th>
+                        <th id="act">ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

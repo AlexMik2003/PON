@@ -186,7 +186,7 @@ class BdcomController extends BaseController
         $ip = $this->ip->convertLong2IP($device->ip);
 
         $ssh = new SSH2($ip);
-        if (!$ssh->login($user, 'Z@dnitsa')) {
+        if (!$ssh->login($user, 'Fibra.Net')) {
             exit('Login Failed');
         }
         $ssh->write("enable\n");
@@ -247,7 +247,7 @@ class BdcomController extends BaseController
         $ip = $this->ip->convertLong2IP($device->ip);
 
         $ssh = new SSH2($ip);
-        if (!$ssh->login($user, 'Z@dnitsa')) {
+        if (!$ssh->login($user, 'Fibra.Net')) {
             exit('Login Failed');
         }
         $ssh->write("enable\n");

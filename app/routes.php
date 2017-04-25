@@ -17,5 +17,14 @@ $app->group('', function () {
         $this->get("/epon/delete/{onu}", "bdcom:bdcomDeleteOnu");
     });
 
+    $this->group("/raisecom/{id}",function (){
+        $this->get("/summary", "raisecom:raisecomPage")->setName("raisecom");
+        $this->get("/gpon/{gpon}", "raisecom:raisecomGpon")->setName("gpon");
+        $this->get("/gpon/{gpon}/json", "raisecom:raisecomGponInfo");
+        $this->get("/gpon/{gpon}/add", "raisecom:raisecomAddGponPage")->setName("gpon.add");
+        $this->post("/gpon/{gpon}/add", "raisecom:raisecomAddGpon");
+        $this->get("/gpon/delete/{onu}", "raisecom:raisecomDeleteOnu");
+    });
+
 })->add(new \App\Middleware\AuthMiddleware($container));
 

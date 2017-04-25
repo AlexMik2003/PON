@@ -41,4 +41,9 @@ class Device extends Model
     {
         return $this->belongsTo(EponMac::class);
     }
+
+    public function gponsn()
+    {
+        return $this->belongsTo(GponSn::class);
+    }
 }

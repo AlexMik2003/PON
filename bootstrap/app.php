@@ -52,6 +52,11 @@ $container["bdcom"] = function ($container)
     return new \App\Controllers\BDCOM\BdcomController($container);
 };
 
+$container["raisecom"] = function ($container)
+{
+    return new \App\Controllers\RAISECOM\RaisecomController($container);
+};
+
 $container["command"] = function ($container)
 {
     return new \App\Controllers\Command\CommandController();

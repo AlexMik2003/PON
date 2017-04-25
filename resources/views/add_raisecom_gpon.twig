@@ -1,0 +1,29 @@
+{% extends "index.twig" %}
+
+{% block page %}
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <b>RAISECOM GPON [1/{{ raisecom.gpon_id }}] [add onu]</b>
+            </div>
+            <div class="panel-body">
+                <form action="" method="post" class="form-horizontal" id="dev_form">
+                    <div class="form-group">
+                        <label for="raisecom_sn" class="col-sm-2 control-label">Serial Number: </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="raisecom_sn" name="raisecom_sn" value="" data-validate="required" minlength="16" maxlength="16">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="real" class="col-sm-2 control-label">Real IP:&emsp;&emsp;
+                            <input type="checkbox" id="real" name="real" value="1" data-validate="required">
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="add_onu"><strong>ADD ONU</strong></button>
+                    {{ csrf.field | raw }}
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
