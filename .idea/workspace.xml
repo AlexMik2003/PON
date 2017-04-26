@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0256209d-8f08-44ac-a19e-7ff31e087957" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/CommitGponOnu.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/BDCOM/BdcomController.php" afterPath="$PROJECT_DIR$/app/Controllers/BDCOM/BdcomController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controllers/RAISECOM/RaisecomController.php" afterPath="$PROJECT_DIR$/app/Controllers/RAISECOM/RaisecomController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/GponOnu.php" afterPath="$PROJECT_DIR$/app/Models/GponOnu.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/GponOnuFirmware.php" afterPath="$PROJECT_DIR$/scripts/GponOnuFirmware.php" />
     </list>
     <ignored path="pon.iws" />
@@ -30,7 +29,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="0">
               <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
               <folding />
             </state>
@@ -50,8 +49,8 @@
       <file leaf-file-name="GponOnuFirmware.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/GponOnuFirmware.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+            <state relative-caret-position="585">
+              <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
               <folding>
                 <element signature="e#54#78#0#PHP" expanded="true" />
               </folding>
@@ -59,48 +58,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommitGponOnu.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/CommitGponOnu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RaisecomController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RaisecomController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controllers/RAISECOM/RaisecomController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="159" column="47" selection-start-line="159" selection-start-column="47" selection-end-line="159" selection-end-column="47" />
+            <state relative-caret-position="364">
+              <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
               <folding>
                 <element signature="e#44#79#0#PHP" expanded="true" />
-                <marker date="1493193754433" expanded="true" signature="3317:3333" ph="..." />
-                <marker date="1493193754433" expanded="true" signature="3467:3477" ph="..." />
+                <marker date="1493203851664" expanded="true" signature="3317:3333" ph="..." />
+                <marker date="1493203851664" expanded="true" signature="3467:3477" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GponSn.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/GponSn.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="68" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="68" />
-              <folding>
-                <element signature="e#54#76#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controllers/Command/CommandController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="176" column="101" selection-start-line="176" selection-start-column="101" selection-end-line="176" selection-end-column="101" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -188,10 +155,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1984" />
-    <option name="y" value="-4" />
-    <option name="width" value="1857" />
-    <option name="height" value="1085" />
+    <option name="x" value="1985" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -218,7 +185,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -582,6 +548,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -682,18 +649,19 @@
       <workItem from="1493102941885" duration="9964000" />
       <workItem from="1493113299842" duration="205000" />
       <workItem from="1493122564994" duration="2538000" />
-      <workItem from="1493188197049" duration="8445000" />
+      <workItem from="1493188197049" duration="9027000" />
+      <workItem from="1493203407741" duration="2621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111139000" />
+    <option name="totallyTimeSpent" value="114342000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1984" y="-4" width="1857" height="1085" extended-state="6" />
+    <frame x="1985" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3228303" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32669982" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -993,7 +961,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="0">
           <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
           <folding />
         </state>
@@ -1020,7 +988,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/Command/CommandController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
+        <state relative-caret-position="2640">
           <caret line="176" column="101" selection-start-line="176" selection-start-column="101" selection-end-line="176" selection-end-column="101" />
           <folding />
         </state>
@@ -1046,14 +1014,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controllers/RAISECOM/RaisecomController.php">
+    <entry file="file://$PROJECT_DIR$/scripts/GponOnuFirmware.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="159" column="47" selection-start-line="159" selection-start-column="47" selection-end-line="159" selection-end-column="47" />
+        <state relative-caret-position="585">
+          <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
           <folding>
-            <element signature="e#44#79#0#PHP" expanded="true" />
-            <marker date="1493193754433" expanded="true" signature="3317:3333" ph="..." />
-            <marker date="1493193754433" expanded="true" signature="3467:3477" ph="..." />
+            <element signature="e#54#78#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1068,21 +1034,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/GponOnuFirmware.php">
+    <entry file="file://$PROJECT_DIR$/scripts/CommitGponOnu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding>
-            <element signature="e#54#78#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/CommitGponOnu.php">
+    <entry file="file://$PROJECT_DIR$/app/Controllers/RAISECOM/RaisecomController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="364">
+          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+          <folding>
+            <element signature="e#44#79#0#PHP" expanded="true" />
+            <marker date="1493203851664" expanded="true" signature="3317:3333" ph="..." />
+            <marker date="1493203851664" expanded="true" signature="3467:3477" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

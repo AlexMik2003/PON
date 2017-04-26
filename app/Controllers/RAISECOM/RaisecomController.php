@@ -166,6 +166,7 @@ class RaisecomController extends BaseController
 
         exec("/usr/bin/php5 /var/www/pon/scripts/GponSn.php",$output,$return);
 
+
         return $responce->withRedirect($this->router->pathFor("raisecom", array("id" => $args["id"])));
 
     }

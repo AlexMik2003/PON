@@ -31,7 +31,20 @@ foreach ($query as $onu)
     echo $ssh->read();
     $ssh->write("dfvgbh99\n");
     echo $ssh->read();
-    $ssh->write("download system2 tftp 185.102.184.19 ISCOMHT803G-1GE_T_GJ01_SYSTEM_3.0.8_20161229 gpon-onu {$gpon[2]}\n");
+    $ssh->write("download system1 tftp 185.102.184.19 ISCOMHT803G-1GE_T_GJ01_SYSTEM_3.0.8_20161229 gpon-onu {$gpon[2]}\n");
+    $ssh->setTimeout(300);
     echo $ssh->read();
+    $ssh->setTimeout(1);
+    $ssh->write("commit system2 gpon-onu {$gpon[2]}\n");
+    echo $ssh->read();
+    $ssh->write("reboot gpon-onu  {$gpon[2]}\n");
+    echo $ssh->read();
+    $ssh->write("yes\n");
+    echo $ssh->read();
+    $ssh->write("wr startup-config\n");
+    echo $ssh->read();
+    $ssh->write("exit\n");
+    echo $ssh->read();
+    $ssh->write("exit\n");
 
 }
