@@ -19,10 +19,7 @@ class GponOnu extends Model
      * @var array
      */
     protected $fillable = [
-        'device_id',
-        'gpon',
         'sn',
-        'oper_status',
     ];
 
     /**

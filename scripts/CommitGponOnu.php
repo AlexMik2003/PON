@@ -23,15 +23,15 @@ foreach ($query as $onu)
     if (!$ssh->login("kuzmich", 'Fibra.Net')) {
         exit('Login Failed');
     }
-    $ssh->write("kuzmich\n");
+    $ssh->write("commit system2 gpon-onu {$gpon[2]}\n");
     echo $ssh->read();
-    $ssh->write("Fibra.Net\n");
+    $ssh->write("reboot gpon-onu  {$gpon[2]}\n");
     echo $ssh->read();
-    $ssh->write("enable\n");
+    $ssh->write("yes\n");
     echo $ssh->read();
-    $ssh->write("dfvgbh99\n");
+    $ssh->write("wr startup-config\n");
     echo $ssh->read();
-    $ssh->write("download system2 tftp 185.102.184.19 ISCOMHT803G-1GE_T_GJ01_SYSTEM_3.0.8_20161229 gpon-onu {$gpon[2]}\n");
+    $ssh->write("exit\n");
     echo $ssh->read();
-
+    $ssh->write("exit\n");
 }
